@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Nickol ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  color:white;
+}
+
+/* ===== FONDO ===== */
+.background{
+  position:fixed;
+  inset:0;
+  background:url("fondo.jpg") center/contain no-repeat;
+  filter:blur(6px);
+  transform:scale(1.15);
+  z-index:-3;
+}
+
+.vignette{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0,0,0,0) 55%,
+      rgba(0,0,0,0.35) 75%,
+      rgba(0,0,0,0.75) 100%
+    );
+  z-index:-2;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.25);
+  z-index:-1;
+}
+
+/* ===== CONTENIDO ===== */
+.content{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cards{
+  width:90%;
+  max-width:360px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.card{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(6px);
+  border-radius:16px;
+  padding:22px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+  opacity:0.4;
+  pointer-events:none;
+}
+
+.card.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.card:hover{
+  transform:scale(1.03);
+}
+
+.card h2{
+  font-size:1.1em;
+  margin-bottom:6px;
+}
+
+.card p{
+  font-size:0.95em;
+  opacity:0.85;
+}
+
+/* ===== MODAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+}
+
+.modal-box{
+  background:#111;
+  padding:22px;
+  border-radius:18px;
+  max-width:340px;
+  max-height:80vh;
+  overflow-y:auto;
+  line-height:1.5;
+}
+
+.modal-box p{
+  margin-bottom:12px;
+}
+
+.close{
+  text-align:center;
+  margin-top:14px;
+  font-size:0.85em;
+  opacity:0.7;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="vignette"></div>
+<div class="overlay"></div>
+
+<div class="content">
+  <div class="cards">
+
+    <div class="card active" onclick="openModal(1)">
+      <h2>Acto 1</h2>
+      <p>Primera llamada</p>
+    </div>
+
+    <div class="card" id="c2" onclick="openModal(2)">
+      <h2>Acto 2</h2>
+      <p>Proceso</p>
+    </div>
+
+    <div class="card" id="c3" onclick="openModal(3)">
+      <h2>Acto 3</h2>
+      <p>Perdidamente</p>
+    </div>
+
+    <div class="card" id="c4" onclick="openModal(4)">
+      <h2>Final 🎁</h2>
+      <p>Para vos</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div id="modal-text"></div>
+    <div class="close" onclick="closeModal()">tocar para cerrar</div>
+  </div>
+</div>
+
+<script>
+let progress = 1;
+
+function openModal(n){
+  const texts = [
+
+`
+    <p>Me acuerdo muy bien de esa primera llamada en la cual nos conocimos, todo fue tan al azar y extraño. Recuerdo estar ahí simplemente para perder el tiempo, pero apareciste.</p>
+
+    <p>Me acuerdo que empezamos a hablar jodiendo y vos viendo mi lado más asqueroso posible en ese momento, pero aun así pudimos tener una linda conversación que transcurrió de la manera más normal posible.</p>
+
+    <p>Hablamos varias cosas de cada uno, algo bonito y normalito que surgió por cosas de la suerte y el azar. A decir verdad cambiaría un poco mi actitud de esa primera vez, pero bueno, qué se le va a hacer.</p>
+
+    <p>Luego de eso fuimos a hablar por wsp. “Caí en tu chat” fue tu primer mensaje. “Qué desafortunada sos entonces” te contesté… y sí que fuiste desafortunada, mirá dónde estás ahora conmigo jajsj.</p>
+
+    <p>Estos fueron los primeros pasos de nuestra pequeña y traviesa historia, llena de peleas, lujurias y demás, pero sobre todo mucho amor que nos mueve al final a estar juntos donde estamos hoy. ¿Te acordás?</p>
+`,
+
+`
+ <p>Cómo llegamos a algo fueron muchas cosas graciosas una tras otra, pero vayamos de inicio que si no nos perdemos.</p>
+
+    <p>Jugar Roblox. Sí, empezamos exactamente ahí. Somos dos niños atrapados en cuerpos grandes.</p>
+
+    <p>Me habías dicho para jugar a 99 noches con tus amigos y me invitaste a participar. Yo seguía hablándote y tirándote indirectas para joder sin saber que íbamos a llegar a todo lo que pasa ahora.</p>
+
+    <p>Esa vez fue la primera que interactué con Monet y Jhamirt. Luego Monet se puso en el medio y al parecer le hablabas mucho de mí… me lo dijo un pajarito.</p>
+
+    <p>Me sentí acosado, pero me gustó. Vos querías algo más formal y yo no estaba seguro por experiencias pasadas. Te veía como una más… pero sos tan linda, tierna y hermosa en cuerpo y alma que me dejaste sin palabras.</p>
+
+    <p>Ahí decidí darlo todo con vos y empezamos esta relación.</p>
+`,
+
+`
+<p>Acá estamos, en el presente. La obra no terminó, sigue en marcha y va a seguir por mucho tiempo.</p>
+
+    <p>Discutimos cosas, inseguridades, problemas, chocamos por actitudes, pero siempre la pasamos y seguimos siendo nosotros, un poco más empalagosos… creo que tengo diabetes.</p>
+
+    <p>Me encanta cómo estamos. Sos alguien tan especial para mí. No quiero a nadie más que a vos.</p>
+
+    <p>Espero que mis desveladas y las cosas que hago pensándote te demuestren eso, aunque sé que a veces te enojan. Perdón, siempre fui un niño rebelde.</p>
+
+    <p>Pero ahora soy tu bb, habrá que portarse bien (aunque a veces me saque la correa).</p>
+
+    <p>Quiero seguir construyendo con vos más cosas, más recuerdos, más de todo. Acepto todo.</p>
+
+    <p><strong>Te amo muchísimo ♡</strong></p>
+
+`,
+
+`
+<p style="text-align:center;">Llegaste hasta acá 💖</p>
+<p style="text-align:center;">Elegí tu regalo:</p>
+
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:18px;">
+  <button onclick="openPDF('CONTRATO ABSOLUTO DE COMPROMISO.pdf')" style="padding:12px;border:none;border-radius:12px;background:#ff6fa5;color:white;font-size:0.95em;cursor:pointer;">
+    💌 Contrato absoluto de compromiso
+  </button>
+
+  <button onclick="openPDF('Razones_para_no_dejarme_estilo_divertido.pdf')" style="padding:12px;border:none;border-radius:12px;background:#6fa8ff;color:white;font-size:0.95em;cursor:pointer;">
+    😂 Razones para no dejarme
+  </button>
+</div>
+
+<p style="text-align:center;margin-top:16px;font-size:0.9em;opacity:0.8;">
+  Gracias por ser parte de mi vida ♡
+</p>
+`
+  ];
+
+  document.getElementById("modal-text").innerHTML = texts[n-1];
+  document.getElementById("modal").style.display = "flex";
+
+  if(n < 4 && progress === n){
+    progress++;
+    document.getElementById("c" + progress).classList.add("active");
+  }
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
+}
+
+function openPDF(file){
+  window.location.href = file;
+}
+</script>
+
+</body>
+</html>
